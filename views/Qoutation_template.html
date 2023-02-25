@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pdf Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            zoom: 0.50;
+        }
+
+        p {
+            font-size: 12px;
+            margin: 0px;
+            font-weight: 800;
+        }
+
+        td>h6 {
+            margin-bottom: 1px;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        td>b {
+            font-size: 12px;
+            font-weight: 500;
+            /* font-weight: bold; */
+        }
+
+        .red {
+            color: #c00000;
+        }
+
+        td {
+            font-size: 12px;
+            padding-top: 1px;
+            padding-left: 5px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body style="font-size: 12px; padding:10px 10px;  margin:40px auto; ">
+    <table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-top: solid black 2px;
+    border-left: solid black 2px;
+    border-right: solid black 2px;
+    border-bottom-style:none ;
+    ">
+        <tr style="border-bottom: 1px solid black !important;">
+            <td colspan="6" align="left" valign="top" bgcolor="#ffe77b"
+                style="background-color:#fff; border-bottom: 1px solid black ;">
+                <img height="70" width="400" style="padding:3px 0px 3px 3px;"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzRqKOwa_vQ4lywIP3nghnBi2LTSPZhDRWYOSpUZxsn4H_aGS4rqIKD4pbkjt-u5UcfulNShlMNICE0hu1j8y7WWjDQSdN5tE1jEA58IqxTeKCz5ARzdjo5j3tdTbgLVIXsmo9CqXOryD6snryD_ngwEEYf__SMMRuJ1E1NRiAJ2Ulob4FD2ypyjW9_w/s420/DSZ%20Letter%20Head.png"
+                    alt="">
+                <img align="right" height="70" width="230" style="padding:3px 30px 3px 0px;"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIJh2MFIyRZhaUjxqiYKmyGi51r6HBuPCkb_JgfcVLg8VwyhdEb3sp8auBdBz4e1kwQ0LYarrTzKQMbajz9Gflb0GbiBSm0TIp6_nbbbid8FbCEdaFF1UPDeoWg-w3qDXNzWkMfI_jV3aa975TQbepTsWCjf-Ir2jIpiHx0IT-5InkmJ6N_pG258wFww/s1847/Signature%20DSZ.png"
+                    alt="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" align="center" valign="top" bgcolor="#ffe77b" style="background-color:#fff;">
+                <h2 style="font-size: 30px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 10px;">Quotation Book</h2>
+            </td>
+
+        </tr>
+
+    </table>
+
+
+    <div style="margin: 0px; padding: 0px; display:-webkit-flex;">
+
+        <table border="1"
+            style="border-left: solid black 1px; border-bottom: 0.5px solid black!important; border-right: 0px solid black!important; border-top:0.5px solid black!important; width: 55%; margin: 0px; padding:0px;">
+            <tr height="146px">
+                <td>
+                    <p>Darshan Safety Zone</p>
+                    <p>5,DHARMKUJ,NR.MUKTIDHAM ESTATE,B/H.PANCHAM MALL,NIKOL GAM</p>
+                    <p>ROAD,AHMEDABAD-382 350</p>
+                    <p>MO: +91 9429128748 & 9712579456 & 9978619456</p>
+                    <p>Website : www.darshansafetyzone.in</p>
+                    <p>GSTIN/UIN : 24AKQPP5799M1Z0</p>
+                    <p>Email: urvisha@darshansafetyzone.in</p>
+                    <p>IEC No: 0816910553</p>
+                </td>
+            </tr>
+            <tr height="26px">
+                <td>
+                    <p>Consignee</p>
+                </td>
+            </tr>
+            <tr height="126px">
+                <td>
+                    <P>{{products.client.company}}</P>
+                    <p>Address: {{products.client.address}}</p>
+                    <p>GST IN: {{products.client.gst}}</p>
+                    <p>Email: {{products.client.email}}</p>
+                    <p>Contact : {{products.client.mobile}}</p>
+                </td>
+            </tr>
+        </table>
+
+
+        <table border="1"
+            style="border-right: solid black 1px; border-bottom: 0.5px solid black!important; width: 45%; border-left-style: none; border-top: 0.5px solid black!important; margin: 0px; padding: 0px;">
+            <tr height="48px">
+                <td width="50%">
+                    <h6 style="padding-top:4px">Quotation No</h6>
+                    <b style="padding-top:6px">{{products.quotationNo}}</b>
+                </td>
+
+                <td>
+                    <h6 style="padding-top:4px">Dated</h6>
+                    <b style="padding-top:6px">{{products.metadata.date}}</b>
+                </td>
+            </tr>
+
+            <tr height="48px">
+
+                <td>
+                    <h6 style="padding-top:4px">Buyers's Requirement No</h6>
+                    <b style="padding-top:6px;">By Mail</b>
+                </td>
+
+                <td>
+                    <h6 style="padding-top:4px">Offer Validity</h6>
+                    <b style="color: #c00000; font-weight: 600;padding-top:6px">{{products.metadata.offer_validity}}</b>
+                </td>
+            </tr>
+
+            <tr height="50px">
+                <td>
+                    <h6 style="padding-top:4px">Suppliers's Ref. No.</h6>
+                    <b style="padding-top:6px">{{products.metadata.suppliers_ref_no}}</b>
+                </td>
+
+                <td>
+                    <h6 style="padding-top:4px">Payment Terms</h6>
+                    <b
+                        style="color: #c00000; font-weight: 600; padding-top: 6px;">{{products.metadata.payment_terms}}</b>
+                </td>
+
+            </tr>
+
+            <tr height="60px">
+                <td>
+                    <h6>Seller Name</h6>
+                    <b>{{products.sender.name}}</b>
+                    <br />
+                    <b>{{products.sender.mobile}}</b>
+                </td>
+
+                <td>
+                    <h6>Buyer's Name</h6>
+                    <b>{{products.client.name}}</b>
+                    <br />
+                    <b>{{products.client.mobile}}</b>
+                </td>
+            </tr>
+            <tr height="45px">
+                <td>
+                    <h6>Dispatch Through</h6>
+                    <b>{{products.metadata.dispatch_through}}</b>
+                </td>
+
+                <td>
+                    <h6>Destination</h6>
+                    <b>{{products.metadata.destination}}</b>
+                </td>
+            </tr>
+            <tr height="45px">
+                <td>
+                    <h6>Terms of Delivery</h6>
+                    <b>{{products.metadata.terms_of_deliver}}</b>
+                </td>
+
+                <td>
+                    <h6>Total Bundle</h6>
+                    <b>{{products.metadata.total_bundel}}</b>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="0" style="border-bottom: solid black 2px;
+    border-left: solid black 2px;
+    border-right: solid black 2px;
+    ">
+        <tr>
+            <td width="5%" style="border-bottom: solid black 2px; text-align: center;  font-weight:800;">Sr No.</td>
+            <td width="40%" style="border-bottom: solid black 2px; font-weight:800;">Description Of Goods</td>
+            <td width="9.8%" style="border-bottom: solid black 2px; text-align: center; font-weight:800;">HSN</td>
+            <td width="11.25%" style="border-bottom: solid black 2px; text-align: center; font-weight:800;">Qty</td>
+            <td width="11.25%" style="border-bottom: solid black 2px; text-align: center; font-weight:800;">Rate</td>
+            <td width="9.5%" style="border-bottom: solid black 2px; text-align: center; font-weight:800;">Unit</td>
+            <td width="13%" style="border-bottom: solid black 2px; text-align: center; font-weight:800;">Amount</td>
+        </tr>
+        <!-- <tr style="font-weight: 700;">
+      <td width="30px">1</td>
+      <td width="548px">
+        <p class="red"> Silica Fabric DSZHS96.0.8 </p>
+        Working Temp.: 1100 C <br>
+        Melting Point: 1860 C <br>
+        Thickness: 0.8 mm <br>
+        Size: 1 X 50 Meter <br>
+        Colour: Light Golden <br>
+        100% Non Asbestos Itching Free Material <br>
+        &nbsp;<br>
+        &nbsp;<br>
+      </td>
+
+      <td>150</td>
+      <td>₹900.00</td>
+      <td>SQM</td>
+      <td>₹1,35,000.00</td>
+    </tr> -->
+        {{#each products.prodlist}}
+        <tr style="font-weight: 700;">
+            <td style="text-align: center;">{{this.id}}</td>
+            <td>
+                <p class="red" style="padding-bottom: 1px;">{{this.description}} {{this.modelNo}}</p>
+
+                {{#each this.data}}
+                <p style="font-weight:500;">{{this}}</p>
+                {{/each}}
+
+                {{#each this.note}}
+                <p style="font-weight:500;">{{this}}</p>
+                {{/each}}
+
+
+            </td>
+            <td style="text-align: center; font-weight:500;">{{this.HSNCode}}</td>
+            <td style="text-align: center; font-weight:500;">{{this.quantity}}</td>
+            <td style="text-align: center; font-weight:500;">{{this.rate}}</td>
+            <td style="text-align: center; font-weight:500;">{{this.unit}}</td>
+            <td style="text-align: center; font-weight:500;">{{this.subtotal}}</td>
+        </tr>
+        {{/each}}
+
+        {{#ifCond products.IsRP '!==' 0 }}
+
+
+
+        {{#each products.rprodlist}}
+        <tr>
+            <td colspan="7">
+                <p align="center" style="padding: 2px 0px; color: #c00000;">
+                    OR
+                </p>
+            </td>
+        </tr>
+        <tr style="font-weight: 700;">
+            <td style="text-align: center;">{{this.id}}</td>
+            <td>
+                <p class="red" style="padding-bottom: 1px;">{{this.description}} {{this.modelNo}}</p>
+
+                {{#each this.data}}
+                <p style="font-weight:500;">{{this}}</p>
+                {{/each}}
+
+                {{#each this.note}}
+                <p style="font-weight:500;">{{this}}</p>
+                {{/each}}
+
+            </td>
+            <td style="text-align: center; font-weight:500;">{{this.HSNCode}}</td>
+            <td style="text-align: center; font-weight:500;">{{this.quantity}}</td>
+            <td style="text-align: center; font-weight:500;">{{this.rate}}</td>
+            <td style="text-align: center; font-weight:500;">{{this.unit}}</td>
+            <td style="text-align: center; font-weight:500;">{{this.subtotal}}</td>
+        </tr>
+        {{/each}}
+
+        {{/ifCond}}
+
+        <tr style="color: #c00000; font-weight: 800;">
+            <td colspan="2">
+                <p align="right">
+
+                    {{#ifCond products.metadata.currency '===' "INR"}}
+                    Transportation Cost&nbsp; <br>
+                    Packaging And Forwarding Charges&nbsp; <br>
+                    Output IGST {{products.metadata.GST}}%&nbsp; <br>
+                    {{/ifCond}}
+
+                    {{#ifCond products.metadata.currency '===' "USD"}}
+
+                    Packaging And Forwarding Charges&nbsp; <br>
+
+                    {{#ifCond products.metadata.custom_field1_value "!==" ""}}
+                    {{products.metadata.custom_field1}}&nbsp; <br>
+                    {{/ifCond}}
+                    {{#ifCond products.metadata.custom_field2_value "!==" ""}}
+                    {{products.metadata.custom_field2}}&nbsp; <br>
+                    {{/ifCond}}
+                    Output IGST {{products.metadata.GST}}%&nbsp; <br>
+                    {{/ifCond}}
+                </p>
+                <p align="left">
+                    &nbsp; Transportation : {{products.metadata.transportation}}<br>
+                    &nbsp; Brand: Signatuer By DSZ <br>
+                </p>
+            </td>
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+            <td style="text-align: center; vertical-align: top;">
+
+                {{#ifCond products.metadata.currency '===' "INR"}}
+                <br>
+                <br>
+                {{products.metadata.GST}}%
+                {{/ifCond}}
+
+
+                {{#ifCond products.metadata.currency '===' "USD"}}
+                <br>
+                {{#ifCond products.metadata.custom_field1_value "!==" ""}}
+                <br>
+                {{/ifCond}}
+                {{#ifCond products.metadata.custom_field2_value "!==" ""}}
+                <br>
+                {{/ifCond}}
+                {{products.metadata.GST}}%
+                {{/ifCond}}
+            </td>
+            <td colspan="1"></td>
+            <td style="text-align: center; vertical-align: top;">
+
+                {{#ifCond products.metadata.currency '===' "INR"}}
+                {{products.transportation_cost}}<br />
+                {{products.packaging_and_forwarding_charges}}<br />
+                {{products.tax}}
+                {{/ifCond}}
+
+                {{#ifCond products.metadata.currency '===' "USD"}}
+
+                {{products.packaging_and_forwarding_charges}}<br />
+
+                {{#ifCond products.metadata.custom_field1_value "!==" ""}}
+                {{products.custom_field1_cost}}&nbsp; <br>
+                {{/ifCond}}
+                {{#ifCond products.metadata.custom_field2_value "!==" ""}}
+                {{products.custom_field2_cost}}&nbsp; <br>
+                {{/ifCond}}
+
+                {{products.tax}}
+
+                {{/ifCond}}
+            </td>
+        </tr>
+
+        <tr style="font-weight: 800;">
+            <td colspan="2">
+                <p align="center">
+                    Total
+                </p>
+
+            </td>
+            <td align="center"></td>
+            <td align="center">{{products.quantityTotal}}</td>
+            <td></td>
+            <td align="center"></td>
+            <td align="center">{{products.gtotal}}</td>
+        </tr>
+
+        <tr>
+            <td colspan="4" style="border-right: none;">
+                <p align="left">
+                    &nbsp;Amount Chargable( In Word)
+                </p>
+                <p>
+                    &nbsp;{{products.inwordPrefix}}{{products.gtotalInword}} Only For,
+                </p>
+                <p align="left">
+                    &nbsp;MSME No: &nbsp;UDYAM-GJ-01-0036584
+                </p>
+                <p align="left">
+                    &nbsp;TAN No: &nbsp;&nbsp;&nbsp;&nbsp; AHMH09140F
+
+                </p>
+                <p align="left">
+                    &nbsp;PAN No:&nbsp;&nbsp;&nbsp;&nbsp; AKQPP5799M
+                </p>
+
+            </td>
+            <td colspan="3" style="border-left:none;">
+
+                <p>
+                    <br />
+                </p>
+
+                <p align="right">
+                    Darshan Safety Zone&nbsp;&nbsp;&nbsp;
+                </p>
+                <div align="right">
+                    <img width="70px"
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdO69MgAT-7Sd4XaTq3arjq9Ix1X6eagVy57yGUf1P7a860sknn5GmuddjpSYFc_Vsu9SOyCJtmrYXf6jDNIfAIyVeRmJEyz-oIfQw7xRzqQ2hMVRO0VBNfV1l9RFzomLqZcfuN0z_Ab0AlEE9hLTIj6iiUM4ROKa7fREcPB88dUG0j7ZxbpfGsvbxWQ/s1600/signature_DSZ-removebg%201.png"
+                        style="display:block; margin-right: 30px;" />
+                </div>
+                <p align="right">
+                    Authorized Signatory&nbsp;&nbsp;&nbsp;
+                </p>
+            </td>
+        </tr>
+
+
+        {{#ifCond products.IsTAC '!==' 0 }}
+
+        <tr>
+            <td colspan="7">
+                <p>
+                    Additional Terms & Conditions
+                </p>
+                <!-- <p style="white-space: pre-line; padding: 0px">{{products.TAC}}</p> -->
+                </p>
+                <ol style="margin-left:25px; font-weight:500">
+                    {{#each products.TAC}}
+                    <li>{{this.data}}</li>
+                    {{/each}}
+                </ol>
+            </td>
+        </tr>
+
+        {{/ifCond}}
+
+        <!-- <tr>
+            <td colspan="6">
+
+                <div style="display:-webkit-flex; width: 60%; margin: 5px auto; padding: 7px 0px;">
+
+                    <span style="margin: 0px 20px;">
+                        <p style="padding-bottom: 5px;">Prepared By</p>
+                        <p style="font-weight:500">Ms Urvisha Patel</p>
+                        <p style="font-weight:500">For Darshan Safety Zone</p>
+                    </span>
+
+                    <span style="margin: 0px 20px;">
+                        <p style="padding-bottom: 5px;">Approved By:</p>
+                        <p style="font-weight:500">Mr Darshan Pandya</p>
+                        <p style="font-weight:500">For Darshan Safety Zone</p>
+                    </span>
+
+                    <span style="margin: 0px 20px;">
+                        <p style="padding-bottom: 5px;">Approved By:</p>
+                        <p style="font-weight:500">Mr Monil Sanghrajka</p>
+                        <p style="font-weight:500">For AGG Lifesciences and Safety Solutions LLP.</p>
+                    </span>
+
+                </div>
+            </td>
+
+        </tr> -->
+
+        <tr>
+            <td colspan="7">
+                <p align="center" style="padding: 2px 0px;">
+                    For Indian Buyers: For Export purpose, We can Sale the Material under LUT, It will contain 0.01%
+                    Tax.
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="7">
+
+                <div style="display:-webkit-flex; width: 75%; margin: 5px auto; padding: 7px 0px;">
+
+                    <span style="margin: 0px 25px;">
+                        <p>Office Address:</p>
+                        <p style="font-weight:500">A-102, Sardar Patel Mall,</p>
+                        <p style="font-weight:500">2nd Near Madhav</p>
+                        <p style="font-weight:500">Hospital, Nikol Gam Road.</p>
+                        <p style="font-weight:500">Bapunagar, Ahmedabad -</p>
+                        <p style="font-weight:500">382345</p>
+                    </span>
+
+                    <span style="margin: 0px 25px;">
+                        <p>Factory:</p>
+                        <p style="font-weight:500">Plot NO 2 to 4. Arva</p>
+                        <p style="font-weight:500">Industrial Park, Village:</p>
+                        <p style="font-weight:500">Lalapur, Kubadthal.</p>
+                        <p style="font-weight:500">Dashkroi, Ahmedabad -</p>
+                        <p style="font-weight:500">382430</p>
+
+                    </span>
+
+                    <span style="margin: 0px 25px;">
+                        <p>Contact:</p>
+                        <p style="font-weight:500">+91 9429128748</p>
+                        <p style="font-weight:500">+91 9712579456</p>
+                        <p style="font-weight:500">491 9978619456</p>
+                        <p style="font-weight:500">(Office)</p>
+                    </span>
+
+                    <span style="margin: 0px 25px;">
+                        <p>E-mail:</p>
+                        <p style="font-weight:500">info@darshansafetvzone.in</p>
+                        <p style="font-weight:500">urvisha@darshansafetvzone.in</p>
+                        <p style="font-weight:500">Web: www.fireblanket.in</p>
+                        <p style="font-weight:500">www.darshansafetyzone.Com</p>
+                        <p style="font-weight:500">www.darshansafetyzone.in</p>
+                    </span>
+
+                </div>
+            </td>
+
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>
