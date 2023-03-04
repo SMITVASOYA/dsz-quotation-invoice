@@ -29,6 +29,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/generate/docs", express.static(path.join(__dirname, "docs")));
 app.use(homeRoutes.routes);
 
-app.listen(8000, () =>
-  console.log("App is listening on url http://localhost:8000")
+app.listen(process.env.PORT, () =>
+  console.log(`App is listening on url ${process.env.PORT}`)
 );

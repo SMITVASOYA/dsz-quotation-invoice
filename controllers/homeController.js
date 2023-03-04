@@ -175,7 +175,7 @@ const generatePdf = async (req, res) => {
           currency: details.metadata.currency,
         }),
       };
-      console.log(d.quantity, d.rate, unit_cost);
+      // console.log(d.quantity, d.rate, unit_cost);
       product_array.push(prod);
     });
 
@@ -252,7 +252,7 @@ const generatePdf = async (req, res) => {
     let subtotal = 0;
     let quantityTotal = 0;
     product_array.forEach((i) => {
-      console.log(i.total, 229);
+      // console.log(i.total, 229);
       subtotal += i.total;
       quantityTotal += parseInt(i.quantity);
     });
@@ -321,7 +321,7 @@ const generatePdf = async (req, res) => {
     }
 
     // const inword = ""
-    console.log(grandtotal, 300);
+    // console.log(grandtotal, 300);
     var inword = converter.toWords(parseFloat(grandtotal));
     inword = toTitleCase(inword);
 
@@ -385,14 +385,14 @@ const generatePdf = async (req, res) => {
     await pdf
       .create(document, options)
       .then((res) => {
-        console.log(res);
+        console.log(res, "in pdf creation process");
       })
       .catch((error) => {
         console.error(error);
       });
 
-    // const filepath = SERVER_URL + "/generate/docs/quotations/" + filename;
-    const filepath = "./public/quotations/" + filename;
+    const filepath = SERVER_URL + "/generate/docs/quotations/" + filename;
+    // const filepath = "./public/quotations/" + filename;
 
     // var options = {
     //     root: "D:\\zelixprojects\\node-quotation-generator\\docs"
@@ -412,7 +412,7 @@ const generatePdf = async (req, res) => {
 const generateInvoicePdf = async (req, res) => {
   try {
     const data = req.body;
-    console.log(data.client, "390");
+    // console.log(data.client, "390");
     if (data.client.client_company_name) {
       data.client.client_company_name =
         data.client.client_company_name.toUpperCase();
@@ -630,7 +630,7 @@ const generateInvoicePdf = async (req, res) => {
     }
 
     if (!isNaN(custom_field1_cost) && custom_field1_cost !== "") {
-      console.log("inside");
+      // console.log("inside");
       subtotal += parseFloat(custom_field1_cost);
       custom_field1_cost = parseFloat(custom_field1_cost);
       custom_field1_cost = custom_field1_cost.toLocaleString("en-IN", {
@@ -773,7 +773,7 @@ const generateInvoicePdf = async (req, res) => {
         totalIGST += d.IGST;
         d.totalTax = 0;
         d.totalTax += d.IGST;
-        console.log(d.totalTax, "d.totalTax");
+        // console.log(d.totalTax, "d.totalTax");
         totalTax += totalIGST;
         d.IGST = d.IGST.toLocaleString("en-IN", {
           style: "currency",
@@ -783,7 +783,7 @@ const generateInvoicePdf = async (req, res) => {
           style: "currency",
           currency: details.metadata.currency,
         });
-        console.log(totalIGST, "totalIGST");
+        // console.log(totalIGST, "totalIGST");
       }
       d.totalPrice = d.totalPrice.toLocaleString("en-IN", {
         style: "currency",
@@ -794,7 +794,7 @@ const generateInvoicePdf = async (req, res) => {
     var taxInWord = converter.toWords(parseFloat(totalTax));
     taxInWord = toTitleCase(taxInWord);
     taxInWord = taxInWord.replace(/,/g, "");
-    console.log(product_array, "product_array.data");
+    // console.log(product_array, "product_array.data");
     const obj = {
       prodlist: product_array,
       subtotal: subtotal.toLocaleString("en-IN", {
@@ -872,7 +872,7 @@ const generateInvoicePdf = async (req, res) => {
     await pdf
       .create(document, options)
       .then((res) => {
-        console.log(res);
+        console.log(res, "in invoice file creation");
       })
       .catch((error) => {
         console.error(error);
