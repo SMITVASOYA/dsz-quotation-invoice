@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const { sequelize } = require("./db");
 const corsOptions = {
-  origin: "*",
+  origin: ["http://128.199.26.175:3000", "*"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
