@@ -27,7 +27,7 @@ function buildQuotationNumber(
 
 const createQuotation = async (req, res, next) => {
   try {
-    // console.log("received req");
+    console.log("received req");
     if (!req.body) {
       throw new Error("ValidationError");
     }
@@ -127,7 +127,7 @@ const createQuotation = async (req, res, next) => {
       req.body.sender.name.charAt(0)
     );
     req.body.generatedQuotationNumber = generatedQuotationNumber;
-    // console.log(req.body.generatedQuotationNumber);
+    console.log(req.body.generatedQuotationNumber);
     next();
 
     // return res.status(200).json({

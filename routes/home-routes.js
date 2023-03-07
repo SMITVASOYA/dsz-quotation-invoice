@@ -1,8 +1,8 @@
 const express = require("express");
 const {
-	homeview,
-	generatePdf,
-	generateInvoicePdf,
+  homeview,
+  generatePdf,
+  generateInvoicePdf,
 } = require("../controllers/homeController");
 const { createInvoice } = require("../controllers/invoice");
 const { createQuotation } = require("../controllers/quotation");
@@ -12,12 +12,11 @@ const router = express.Router();
 router.get("/", homeview);
 // router.get('/download', generatePdf);
 router.post("/generate/download", createQuotation, generatePdf);
-router.post(
-	"/generate/createInvoice",
-	createInvoice,
-	generateInvoicePdf
-);
+router.post("/generate/createInvoice", createInvoice, generateInvoicePdf);
+
+router.post("/download", generatePdf);
+router.post("/downloadInvoice", generateInvoicePdf);
 
 module.exports = {
-	routes: router,
+  routes: router,
 };

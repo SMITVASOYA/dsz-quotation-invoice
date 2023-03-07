@@ -26,7 +26,7 @@ function buildInvoiceNumber(
 
 const createInvoice = async (req, res, next) => {
   try {
-    // console.log("req received");
+    console.log("req received");
     if (!req.body) {
       throw new Error("ValidationError");
     }
@@ -67,7 +67,7 @@ const createInvoice = async (req, res, next) => {
     if (req.body.query_id) {
       payload.query_id = parseInt(req.body.query_id);
     }
-    // console.log("🚀 ~ file: invoice.js:38 ~ createInvoice ~ payload", payload);
+    console.log("🚀 ~ file: invoice.js:38 ~ createInvoice ~ payload", payload);
 
     const invoice = db.invoice.build(payload);
     await invoice.save();
