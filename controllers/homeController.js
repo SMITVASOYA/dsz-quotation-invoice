@@ -662,7 +662,7 @@ const generateInvoicePdf = async (req, res) => {
         ? (subtotal * details.metadata.GST) / 100
         : 0;
     let grandtotal = subtotal + tax;
-
+    console.log(tax, "tax", grandtotal, "grandtotal");
     function toTitleCase(str) {
       str = str.toLowerCase().split(" ");
       for (var i = 0; i < str.length; i++) {
