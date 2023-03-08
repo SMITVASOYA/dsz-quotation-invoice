@@ -33,6 +33,9 @@ const createInvoice = async (req, res, next) => {
     const clientData = await db.client.findOne({
       where: { client_mobile: req.body.client.mobile },
     });
+    if (!clientData) {
+      throw new Error("Client Not Found");
+    }
     console.log(
       "🚀 ~ file: invoice.js:36 ~ createInvoice ~ clientData:",
       clientData
@@ -46,11 +49,7 @@ const createInvoice = async (req, res, next) => {
       throw new Error("ValidationError");
     }
 
-    const client = await db.client.findByPk(payload.client_id);
-
-    if (!client) {
-      throw new Error("Client Not Found");
-    }
+    // const client = await db.client.findByPk(payload.client_id);
 
     payload.invoice_financial_year = getFinancialYear();
 
