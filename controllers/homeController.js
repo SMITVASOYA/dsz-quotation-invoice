@@ -570,13 +570,6 @@ const generateInvoicePdf = async (req, res) => {
           currency: details.metadata.currency,
         }),
       };
-      console.log(
-        573,
-        d.quantity,
-        d.rate,
-        unit_cost,
-        d.quantity * d.rate * unit_cost
-      );
       product_array.push(prod);
     });
 
@@ -597,7 +590,6 @@ const generateInvoicePdf = async (req, res) => {
     let subtotal = 0;
     let quantityTotal = 0;
     product_array.forEach((i) => {
-      console.log(i.total, 600);
       subtotal += i.total;
       quantityTotal += parseInt(i.quantity);
     });
@@ -711,6 +703,12 @@ const generateInvoicePdf = async (req, res) => {
     var IGST = 0;
     var inrCurrency = false;
     if (details.metadata.currency === "INR") {
+      console.log(
+        details.metadata.packaging_and_forwarding_charges,
+        details.metadata.transportation_cost,
+        details.metadata.GST,
+        706
+      );
       if (details.client.client_state === "Gujarat") {
         inwordPrefix = "Indian Rupees ";
         CGST =
