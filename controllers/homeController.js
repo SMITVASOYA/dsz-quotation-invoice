@@ -475,11 +475,14 @@ const generateInvoicePdf = async (req, res) => {
     const filename = `${InvoiceNo}.pdf`;
 
     count++;
-
     let product_array = [];
     let TACList = [];
 
     let details = data;
+
+    if (Object.keys(data.recommend_products[0]).length > 0) {
+      data.products = [...data.products, ...data.recommend_products];
+    }
 
     data.products.forEach((d, i) => {
       var DTBShow = d.detailsTobeShown;
@@ -654,7 +657,7 @@ const generateInvoicePdf = async (req, res) => {
         ? (subtotal * details.metadata.GST) / 100
         : 0;
     let grandtotal = subtotal + tax;
-    console.log(tax, "tax", grandtotal, "grandtotal");
+
     function toTitleCase(str) {
       str = str.toLowerCase().split(" ");
       for (var i = 0; i < str.length; i++) {
@@ -666,10 +669,6 @@ const generateInvoicePdf = async (req, res) => {
     // const inword = ""
     // console.log(grandtotal);
     var inword = converter.toWords(parseFloat(grandtotal));
-    console.log(
-      "🚀 ~ file: homeController.js:677 ~ generateInvoicePdf ~ inword:",
-      inword
-    );
     inword = toTitleCase(inword);
     inword = inword.replace(/,/g, "");
 
@@ -682,6 +681,21 @@ const generateInvoicePdf = async (req, res) => {
       style: "currency",
       currency: details.metadata.currency,
     });
+
+    // this condition is used for subtract the gst tax from the subtotal
+    if (
+      !isNaN(transportation_cost) &&
+      transportation_cost !== "To Pay" &&
+      transportation_cost !== ""
+    ) {
+      details.metadata.transportation_cost = 0;
+    }
+    if (
+      !isNaN(packaging_and_forwarding_charges) &&
+      packaging_and_forwarding_charges !== ""
+    ) {
+      details.metadata.packaging_and_forwarding_charges = 0;
+    }
 
     let productsArray = [];
     product_array.forEach(function (a) {
@@ -703,12 +717,6 @@ const generateInvoicePdf = async (req, res) => {
     var IGST = 0;
     var inrCurrency = false;
     if (details.metadata.currency === "INR") {
-      console.log(
-        details.metadata.packaging_and_forwarding_charges,
-        details.metadata.transportation_cost,
-        details.metadata.GST,
-        706
-      );
       if (details.client.client_state === "Gujarat") {
         inwordPrefix = "Indian Rupees ";
         CGST =
@@ -804,7 +812,7 @@ const generateInvoicePdf = async (req, res) => {
     var taxInWord = converter.toWords(parseFloat(totalTax));
     taxInWord = toTitleCase(taxInWord);
     taxInWord = taxInWord.replace(/,/g, "");
-    console.log(product_array, "product_array.data");
+    // console.log(product_array, "product_array.data");
     const obj = {
       prodlist: product_array,
       subtotal: subtotal.toLocaleString("en-IN", {

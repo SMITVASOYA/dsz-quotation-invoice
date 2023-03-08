@@ -36,10 +36,10 @@ const createInvoice = async (req, res, next) => {
     if (!clientData) {
       throw new Error("Client Not Found");
     }
-    console.log(
-      "🚀 ~ file: invoice.js:36 ~ createInvoice ~ clientData:",
-      clientData
-    );
+    // console.log(
+    //   "🚀 ~ file: invoice.js:36 ~ createInvoice ~ clientData:",
+    //   clientData
+    // );
     const payload = {
       client_id: clientData.client_id,
       invoice_data: JSON.stringify(req.body),
@@ -72,7 +72,7 @@ const createInvoice = async (req, res, next) => {
     if (req.body.query_id) {
       payload.query_id = parseInt(req.body.query_id);
     }
-    console.log("🚀 ~ file: invoice.js:38 ~ createInvoice ~ payload", payload);
+    // console.log("🚀 ~ file: invoice.js:38 ~ createInvoice ~ payload", payload);
 
     const invoice = db.invoice.build(payload);
     await invoice.save();
