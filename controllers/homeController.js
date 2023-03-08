@@ -674,6 +674,10 @@ const generateInvoicePdf = async (req, res) => {
     // const inword = ""
     // console.log(grandtotal);
     var inword = converter.toWords(parseFloat(grandtotal));
+    console.log(
+      "🚀 ~ file: homeController.js:677 ~ generateInvoicePdf ~ inword:",
+      inword
+    );
     inword = toTitleCase(inword);
     inword = inword.replace(/,/g, "");
 
@@ -792,6 +796,7 @@ const generateInvoicePdf = async (req, res) => {
         });
         console.log(totalIGST, "totalIGST");
       }
+      console.log(d.CGST, d.IGST, d.SGST, 799);
       d.totalPrice = d.totalPrice.toLocaleString("en-IN", {
         style: "currency",
         currency: details.metadata.currency,
