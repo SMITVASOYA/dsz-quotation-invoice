@@ -684,15 +684,15 @@ const generateInvoicePdf = async (req, res) => {
 
     // this condition is used for subtract the gst tax from the subtotal
     if (
-      !isNaN(transportation_cost) &&
-      transportation_cost !== "To Pay" &&
-      transportation_cost !== ""
+      isNaN(transportation_cost) ||
+      transportation_cost == "To Pay" ||
+      transportation_cost == ""
     ) {
       details.metadata.transportation_cost = 0;
     }
     if (
-      !isNaN(packaging_and_forwarding_charges) &&
-      packaging_and_forwarding_charges !== ""
+      isNaN(packaging_and_forwarding_charges) ||
+      packaging_and_forwarding_charges == ""
     ) {
       details.metadata.packaging_and_forwarding_charges = 0;
     }
